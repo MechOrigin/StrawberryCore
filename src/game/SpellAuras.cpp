@@ -367,7 +367,44 @@ pAuraHandler AuraHandler[TOTAL_AURAS]=
     &Aura::HandleNULL,                                      //313 0 spells in 3.3
     &Aura::HandleNULL,                                      //314 1 test spell (reduce duration of silince/magic)
     &Aura::HandleNULL,                                      //315 underwater walking
-    &Aura::HandleNULL                                       //316 makes haste affect HOT/DOT ticks
+    &Aura::HandleNULL,                                      //316 makes haste affect HOT/DOT ticks
+	&Aura::HandleNULL,										// 317 - SPELL_AURA_MOD_SPELL_POWER_PCT
+    &Aura::HandleNULL,										// 318 - SPELL_AURA_MASTERY allows and adds for player x% mastery.
+    &Aura::HandleNULL,										// 319 -
+    &Aura::HandleNULL,										// 320 -
+    &Aura::HandleNULL,                                      // 321 -
+    &Aura::HandleNULL,										// 322 -
+    &Aura::HandleNULL,                                      // 323 - 0 spells in 4.0.6a
+    &Aura::HandleNULL,										// 324 -
+    &Aura::HandleNULL,                                      // 325 - 0 spells in 4.0.6a
+    &Aura::HandleNULL,										// 326 -
+    &Aura::HandleNULL,                                      // 327 - 0 spells in 4.0.6a
+    &Aura::HandleNULL,                                      // 328 - Eclipse driver
+    &Aura::HandleNULL,										// 329 -
+    &Aura::HandleNULL,										// 330 - SPELL_AURA_ALLOW_CAST_WHILE_MOVING
+    &Aura::HandleNULL,                                      // 331 - Weather related.
+    &Aura::HandleNULL,										// 332 - SPELL_AURA_OVERRIDE_ACTIONBAR_SPELLS_1
+    &Aura::HandleNULL,										// 333 - SPELL_AURA_OVERRIDE_ACTIONBAR_SPELLS_2
+    &Aura::HandleNULL,                                      // 334 - deal damage in x range. X - Aura Effect value.
+    &Aura::HandleNULL,                                      // 335 - something with invisibility.
+    &Aura::HandleNULL,                                      // 336 - disallow flight.
+    &Aura::HandleNULL,                                      // 337 - Reduces the price of items from all vendors by xx%.
+    &Aura::HandleNULL,                                      // 338 - Items take xx% less durability loss when you die.
+    &Aura::HandleNULL,                                      // 339 - Increases the chance to gain a skill increase on tradeskills by xx%.
+    &Aura::HandleNULL,                                      // 340 - Increases health gained when resurrected by a guild member by xx%.
+    &Aura::HandleNULL,                                      // 341 - modify cooldown of all spells with Category value from '()'
+    &Aura::HandleNULL,										// 342 -
+    &Aura::HandleNULL,										// 343 -
+    &Aura::HandleNULL,										// 344 -
+    &Aura::HandleNULL,                                      // 345 - Collosus smash.
+    &Aura::HandleNULL,                                      // 346 - Shows special UI (like corrupted blood).
+    &Aura::HandleNULL,                                      // 347 - something with haste.
+    &Aura::HandleNULL,                                      // 348 - increases money loot by x% and gives it to guild bank.  X - Aura Effect value.
+    &Aura::HandleNULL,                                      // 349 - currency points gain increased.
+    &Aura::HandleNULL,                                      // 350 - 1 spell. Increase count of items from Mining, Skinning, Herbalism, and Disenchanting.
+    &Aura::HandleNULL,										// 351 - Modify Archeology skill.
+    &Aura::HandleNULL,                                      // 352 - Only 1 Worgen Form.
+    &Aura::HandleNULL,										// 353 - SPELL_AURA_CAMOUFLAGE
 };
 
 static AuraType const frozenAuraTypes[] = { SPELL_AURA_MOD_ROOT, SPELL_AURA_MOD_STUN, SPELL_AURA_NONE };
@@ -7033,6 +7070,11 @@ void Aura::HandleSchoolAbsorb(bool apply, bool Real)
             }
         }
     }
+}
+
+void Aura::HandleMasteryAura(bool apply, bool Real)
+{
+
 }
 
 void Aura::PeriodicTick()

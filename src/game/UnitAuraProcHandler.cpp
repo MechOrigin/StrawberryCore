@@ -349,7 +349,44 @@ pAuraProcHandler AuraProcHandler[TOTAL_AURAS]=
     &Unit::HandleNULLProc,                                  //313 0 spells in 3.3
     &Unit::HandleNULLProc,                                  //314 1 test spell (reduce duration of silince/magic)
     &Unit::HandleNULLProc,                                  //315 underwater walking
-    &Unit::HandleNULLProc                                   //316 makes haste affect HOT/DOT ticks
+    &Unit::HandleNULLProc,                                  //316 makes haste affect HOT/DOT ticks
+	&Unit::HandleNULLProc,									//317
+	&Unit::HandleMateryAuraProc,							//318 mastery
+	&Unit::HandleNULLProc,									//319
+	&Unit::HandleNULLProc,									//320
+	&Unit::HandleNULLProc,									//321
+	&Unit::HandleNULLProc,									//322
+	&Unit::HandleNULLProc,									//323
+	&Unit::HandleNULLProc,									//324
+	&Unit::HandleNULLProc,									//325
+	&Unit::HandleNULLProc,									//326
+	&Unit::HandleNULLProc,									//327
+	&Unit::HandleNULLProc,									//328
+	&Unit::HandleNULLProc,									//329
+	&Unit::HandleNULLProc,									//330
+	&Unit::HandleNULLProc,									//331
+	&Unit::HandleNULLProc,									//332
+	&Unit::HandleNULLProc,									//333
+	&Unit::HandleNULLProc,									//334
+	&Unit::HandleNULLProc,									//335
+	&Unit::HandleNULLProc,									//336
+	&Unit::HandleNULLProc,									//337
+	&Unit::HandleNULLProc,									//338
+	&Unit::HandleNULLProc,									//339
+	&Unit::HandleNULLProc,									//340
+	&Unit::HandleNULLProc,									//341
+	&Unit::HandleNULLProc,									//342
+	&Unit::HandleNULLProc,									//343
+	&Unit::HandleNULLProc,									//344
+	&Unit::HandleNULLProc,									//345
+	&Unit::HandleNULLProc,									//346
+	&Unit::HandleNULLProc,									//347
+	&Unit::HandleNULLProc,									//348
+	&Unit::HandleNULLProc,									//349
+	&Unit::HandleNULLProc,									//350
+	&Unit::HandleNULLProc,									//351
+	&Unit::HandleNULLProc,									//352
+	&Unit::HandleNULLProc,									//353
 };
 
 bool Unit::IsTriggeredAtSpellProcEvent(Unit *pVictim, SpellAuraHolder* holder, SpellEntry const* procSpell, uint32 procFlag, uint32 procExtra, WeaponAttackType attType, bool isVictim, SpellProcEventEntry const*& spellProcEvent )
@@ -4123,4 +4160,13 @@ SpellAuraProcResult Unit::HandleRemoveByDamageChanceProc(Unit* pVictim, uint32 d
     }
 
     return SPELL_AURA_PROC_FAILED;
+}
+
+SpellAuraProcResult Unit::HandleMateryAuraProc(Unit* pVictim, uint32 damage, Aura* triggeredByAura, SpellEntry const *procSpell, uint32 procFlag, uint32 procEx, uint32 cooldown)
+{
+	Player *player = ObjectAccessor::FindPlayer(triggeredByAura->GetCasterGuid());
+
+
+
+	return SPELL_AURA_PROC_FAILED;
 }
